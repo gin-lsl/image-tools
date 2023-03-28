@@ -1,0 +1,15 @@
+.images .image {
+  width: 260px;
+}
+
+.canvas {
+  box-shadow: 0 0 4px blueviolet;
+}
+
+.m8 {
+  margin: 8px;
+}
+
+.p8 {
+  padding: 8px;
+}

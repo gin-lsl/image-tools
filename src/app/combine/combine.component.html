@@ -1,0 +1,50 @@
+<div class="toolbars">
+  <input
+    #fileInputRef
+    style="display: none"
+    type="file"
+    multiple
+    (change)="onFileChange($event)"
+  />
+  <button
+    mat-raised-button
+    [color]="imageUrls.length !== 2 ? 'primary' : ''"
+    class="m8"
+    (click)="fileInputRef.click()"
+  >
+    Choose Images
+  </button>
+  <button
+    mat-raised-button
+    class="m8"
+    [disabled]="imageUrls.length !== 2"
+    [color]="imageUrls.length === 2 ? 'primary' : ''"
+    (click)="onPaintImages()"
+  >
+    Paint Images
+  </button>
+
+  <!-- <mat-form-field>
+    <input type="number" matInput [(ngModel)]="canvasSize.h" />
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <mat-label>Mode</mat-label>
+    <mat-select [(ngModel)]="mode" (selectionChange)="onModelChanges()">
+      <mat-option *ngFor="let m of modes" [value]="m">{{ m }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="p8">
+  <canvas
+    class="canvas"
+    #canvasRef
+    [width]="canvasSize.w"
+    [height]="canvasSize.h"
+  ></canvas>
+</div>
+
+<div class="images m8">
+  <img class="image" *ngFor="let url of imageUrls" [src]="url" />
+</div>
