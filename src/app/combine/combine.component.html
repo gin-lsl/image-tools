@@ -1,39 +1,59 @@
 <div class="toolbars">
-  <input
-    #fileInputRef
-    style="display: none"
-    type="file"
-    multiple
-    (change)="onFileChange($event)"
-  />
-  <button
-    mat-raised-button
-    [color]="imageUrls.length !== 2 ? 'primary' : ''"
-    class="m8"
-    (click)="fileInputRef.click()"
-  >
-    Choose Images
-  </button>
-  <button
-    mat-raised-button
-    class="m8"
-    [disabled]="imageUrls.length !== 2"
-    [color]="imageUrls.length === 2 ? 'primary' : ''"
-    (click)="onPaintImages()"
-  >
-    Paint Images
-  </button>
+  <div class="toolbar--section">
+    <mat-form-field>
+      <mat-label>Width</mat-label>
+      <input
+        type="number"
+        matInput
+        [(ngModel)]="canvasSize.w"
+        [min]="50"
+        (change)="onModelChanges()"
+      />
+    </mat-form-field>
 
-  <!-- <mat-form-field>
-    <input type="number" matInput [(ngModel)]="canvasSize.h" />
-  </mat-form-field> -->
+    <mat-form-field>
+      <mat-label>Height</mat-label>
+      <input
+        type="number"
+        matInput
+        [(ngModel)]="canvasSize.h"
+        [min]="50"
+        (change)="onModelChanges()"
+      />
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Mode</mat-label>
-    <mat-select [(ngModel)]="mode" (selectionChange)="onModelChanges()">
-      <mat-option *ngFor="let m of modes" [value]="m">{{ m }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mode</mat-label>
+      <mat-select [(ngModel)]="mode" (selectionChange)="onModelChanges()">
+        <mat-option *ngFor="let m of modes" [value]="m">{{ m }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="toolbar--section">
+    <input
+      #fileInputRef
+      style="display: none"
+      type="file"
+      multiple
+      (change)="onFileChange($event)"
+    />
+    <button
+      mat-raised-button
+      [color]="imageUrls.length !== 2 ? 'primary' : ''"
+      (click)="fileInputRef.click()"
+    >
+      Choose Images
+    </button>
+    <button
+      mat-raised-button
+      [disabled]="imageUrls.length !== 2"
+      [color]="imageUrls.length === 2 ? 'primary' : ''"
+      (click)="onPaintImages()"
+    >
+      Paint Images
+    </button>
+  </div>
 </div>
 
 <div class="p8">

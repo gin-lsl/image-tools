@@ -96,6 +96,8 @@ export class CombineComponent implements OnInit {
       (url) => this.sanitizer.sanitize(SecurityContext.URL, url)!
     );
 
+    ctx.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h);
+
     loadImage(urls[0]).subscribe((img) => {
       ctx.drawImage(img, 0, 0);
 
@@ -173,4 +175,3 @@ function loadImage(src: string) {
     img.src = src;
   });
 }
-

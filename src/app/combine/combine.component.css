@@ -2,6 +2,10 @@
   width: 260px;
 }
 
+.toolbars .toolbar--section > * {
+  margin: 8px;
+}
+
 .canvas {
   box-shadow: 0 0 4px blueviolet;
 }
