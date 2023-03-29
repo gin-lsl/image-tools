@@ -1,10 +1,19 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
+<mat-toolbar color="primary" class="app-toolbar">
+  <button class="humbarger" mat-button (click)="sidenavOpened = !sidenavOpened">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="toolbar-spacer" (click)="drawer.toggle()"></span>
+  <span>Image Tools</span>
+</mat-toolbar>
+
+<mat-drawer-container class="app-container">
+  <mat-drawer mode="side" [opened]="sidenavOpened">
     <mat-nav-list>
       <mat-list-item
         *ngFor="let r of routes"
         [routerLink]="r.path"
         routerLinkActive="sidenav-selected-router"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         {{ r.title }}
       </mat-list-item>

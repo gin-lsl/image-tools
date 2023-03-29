@@ -1,11 +1,30 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+:host {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
-.example-full-width {
-  width: 100%;
+.app-toolbar {
+  padding: 0 16px 0 0;
+}
+
+.app-toolbar .humbarger {
+  height: 100%;
+}
+
+.app-toolbar .humbarger .mat-icon {
+  font-size: 24px;
+  height: 24px;
+  width: 24px;
+  margin-right: 0;
+}
+
+.app-container {
+  flex-grow: 1;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
 }
 
 .mat-drawer {
